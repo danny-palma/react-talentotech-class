@@ -1,19 +1,22 @@
 import "./App.css";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Banner from "./components/banner/banner";
-import Menu from "./components/menu/menu";
-import Content from "./components/content/content";
 import Footer from "./components/footer/footer";
+import Home from "./pages/home/home";
+import Mision from "./pages/mision/mision";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <Banner />
       <Navbar />
-      <Banner/>
-      <Menu/>
-      <Content/>
-      <Footer/>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mision" element={<Mision />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
